@@ -8,6 +8,7 @@ package client;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -58,10 +59,10 @@ public class NewJerseyClient {
     }
     
     static int successResp;
-    
+    static List<Integer> latencies = Collections.synchronizedList(new ArrayList<Integer>());
+
     public static void main(String[] args) {
         //NewJerseyClient client = new NewJerseyClient();
-        final List<Integer> latencies = new ArrayList<>();
         long startTime = System.currentTimeMillis();
         System.out.println("Client starting ... Time : " + startTime);
 
@@ -111,6 +112,7 @@ public class NewJerseyClient {
         System.out.println("Test Wall Time: " + (walltime) + "seconds" );
         
         //Step 5
+        //Collections.sort(latencies);
         Collections.sort(latencies);
         
         double mean = 0;
