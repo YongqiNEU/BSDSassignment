@@ -58,7 +58,7 @@ public class NewJerseyClient {
         client.close();
     }
     
-    static int successResp;
+    static int successResp; 
     static List<Integer> latencies = Collections.synchronizedList(new ArrayList<Integer>());
 
     public static void main(String[] args) {
